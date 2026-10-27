@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simge Reklam - Yönetim Paneli</title>
+  
+  <!-- Website Favicon pointing directly to official logo.png -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0b0f19',        // Deep Carbon Dark Navy
+              surface: '#111827',     // Dark Surface Navy
+              card: '#161f30',
+              orange: '#ff7a00',      // Advertising Orange
+              orangeHover: '#e06500',
+              gold: '#f59e0b',
+              navy: '#0b0f19'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased min-h-screen flex flex-col">
+
+  <!-- Admin Top Navbar -->
+  <header class="bg-brand-dark text-white border-b border-slate-800 sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      
+      <!-- Brand & Official Logo -->
+      <div class="flex items-center space-x-3.5">
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-brand-surface p-1 flex items-center justify-center border border-slate-700">
+            <img src="assets/images/logo.png" alt="Simge Reklam Logo" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <div class="font-display font-black text-lg tracking-wider text-white flex items-center gap-1 leading-tight">
+              <span>SİMGE</span>
+              <span class="text-brand-orange">REKLAM</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+              Şanlıurfa Tabela & Baskı
+            </div>
+          </div>
+        </a>
+        <span class="hidden sm:inline-block text-xs px-2.5 py-0.5 rounded bg-slate-800 text-brand-orange font-semibold border border-slate-700">
+          Yönetim Paneli
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <a href="index.html" target="_blank" class="text-xs font-semibold text-slate-300 hover:text-white flex items-center space-x-1.5 bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl border border-slate-700 transition-colors">
+          <i data-lucide="external-link" class="w-3.5 h-3.5 text-brand-orange"></i>
+          <span>Web Sitesini Gör</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+    
+    <!-- Top Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+      <div class="bg-brand-surface rounded-2xl p-6 shadow-md border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Gelen Teklif Talepleri</p>
+          <h3 id="statQuotes" class="text-3xl font-black text-white font-display mt-1">--</h3>
+        </div>
+        <div class="p-3 bg-brand-orange/20 text-brand-orange rounded-xl border border-brand-orange/30">
+          <i data-lucide="inbox" class="w-6 h-6"></i>
+        </div>
+      </div>
+
+      <div class="bg-brand-surface rounded-2xl p-6 shadow-md border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Aktif Portföy Projeleri</p>
+          <h3 id="statProjects" class="text-3xl font-black text-brand-gold font-display mt-1">6</h3>
+        </div>
+        <div class="p-3 bg-amber-500/20 text-brand-gold rounded-xl border border-amber-500/30">
+          <i data-lucide="image" class="w-6 h-6"></i>
+        </div>
+      </div>
+
+      <div class="bg-brand-surface rounded-2xl p-6 shadow-md border border-slate-800 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Hızlı WhatsApp Hattı</p>
+          <h3 class="text-lg font-bold text-emerald-400 font-display mt-1">+90 414 315 1787</h3>
+        </div>
+        <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Tabs Container -->
+    <div class="bg-brand-surface rounded-3xl shadow-xl border border-slate-800 overflow-hidden">
+      <div class="border-b border-slate-800 px-6 flex space-x-8 text-sm font-bold bg-brand-dark/50">
+        <button id="tabQuotesBtn" class="py-4 text-brand-orange border-b-2 border-brand-orange flex items-center space-x-2">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span>Gelen Teklif Talepleri</span>
+        </button>
+        <button id="tabProjectsBtn" class="py-4 text-slate-400 hover:text-white border-b-2 border-transparent flex items-center space-x-2">
+          <i data-lucide="images" class="w-4 h-4"></i>
+          <span>Portföy & Proje Yönetimi</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Quotes List -->
+      <div id="tabQuotesContent" class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h4 class="font-bold text-white text-lg font-display">Web Sitesinden Gelen Teklif Talepleri</h4>
+            <p class="text-xs text-slate-400">data/quotes.json dosyasından canlı olarak listelenir.</p>
+          </div>
+          <button id="refreshQuotes" class="text-xs font-semibold text-slate-300 hover:text-white flex items-center space-x-1.5 bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl transition-colors border border-slate-700">
+            <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-brand-orange"></i>
+            <span>Yenile</span>
+          </button>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-800">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-brand-dark text-slate-400 uppercase font-bold border-b border-slate-800">
+              <tr>
+                <th class="py-3.5 px-4">Tarih</th>
+                <th class="py-3.5 px-4">Müşteri / Firma</th>
+                <th class="py-3.5 px-4">Telefon</th>
+                <th class="py-3.5 px-4">Hizmet</th>
+                <th class="py-3.5 px-4">Ölçüler / Notlar</th>
+                <th class="py-3.5 px-4 text-right">Hızlı Aksiyon</th>
+              </tr>
+            </thead>
+            <tbody id="quotesTableBody" class="divide-y divide-slate-800/80 bg-brand-surface">
+              <tr>
+                <td colspan="6" class="py-8 text-center text-slate-500">
+                  Talepler yükleniyor...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 2: Projects Management -->
+      <div id="tabProjectsContent" class="p-6 hidden">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h4 class="font-bold text-white text-lg font-display">Yayındaki Projeler</h4>
+            <p class="text-xs text-slate-400">Galeride ziyaretçilere sergilenen gerçek Şanlıurfa tabela ve baskı işleri.</p>
+          </div>
+          <button id="addNewProjectBtn" onclick="alert('Proje ekleme API entegrasyonu hazırdır. data/projects.json üzerinden yeni kayıtlar ekleyebilirsiniz.')" class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>Yeni Proje Ekle</span>
+          </button>
+        </div>
+
+        <div id="projectsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamic Project Cards Loaded by JS -->
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-brand-dark border-t border-slate-800 py-5 text-center text-xs text-slate-500">
+    &copy; Simge Reklam Şanlıurfa - Yönetim Paneli
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Tab Switching
+    const tabQuotesBtn = document.getElementById('tabQuotesBtn');
+    const tabProjectsBtn = document.getElementById('tabProjectsBtn');
+    const tabQuotesContent = document.getElementById('tabQuotesContent');
+    const tabProjectsContent = document.getElementById('tabProjectsContent');
+
+    tabQuotesBtn.addEventListener('click', () => {
+      tabQuotesBtn.className = "py-4 text-brand-orange border-b-2 border-brand-orange flex items-center space-x-2";
+      tabProjectsBtn.className = "py-4 text-slate-400 hover:text-white border-b-2 border-transparent flex items-center space-x-2";
+      tabQuotesContent.classList.remove('hidden');
+      tabProjectsContent.classList.add('hidden');
+    });
+
+    tabProjectsBtn.addEventListener('click', () => {
+      tabProjectsBtn.className = "py-4 text-brand-orange border-b-2 border-brand-orange flex items-center space-x-2";
+      tabQuotesBtn.className = "py-4 text-slate-400 hover:text-white border-b-2 border-transparent flex items-center space-x-2";
+      tabProjectsContent.classList.remove('hidden');
+      tabQuotesContent.classList.add('hidden');
+    });
+
+    // Load Quotes
+    async function loadQuotes() {
+      const tbody = document.getElementById('quotesTableBody');
+      const statEl = document.getElementById('statQuotes');
+      try {
+        const res = await fetch('data/quotes.json?' + Date.now());
+        if (!res.ok) throw new Error('No quotes file yet');
+        const quotes = await res.json();
+        
+        statEl.textContent = quotes.length;
+
+        if (quotes.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Henüz teklif talebi bulunmuyor.</td></tr>`;
+          return;
+        }
+
+        tbody.innerHTML = quotes.map(q => `
+          <tr class="hover:bg-slate-800/50 transition-colors">
+            <td class="py-3.5 px-4 font-mono text-[11px] text-slate-400">${q.created_at || 'Yeni'}</td>
+            <td class="py-3.5 px-4 font-bold text-white">${q.name}</td>
+            <td class="py-3.5 px-4">
+              <a href="tel:${q.phone}" class="text-brand-orange hover:underline font-semibold">${q.phone}</a>
+            </td>
+            <td class="py-3.5 px-4">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-brand-gold text-[11px] font-semibold border border-slate-700">${q.service}</span>
+            </td>
+            <td class="py-3.5 px-4 max-w-xs truncate" title="${q.notes || ''}">
+              <span class="text-white font-medium">${q.dimensions ? 'Ölçü: ' + q.dimensions + ' • ' : ''}</span>
+              ${q.notes || '-'}
+            </td>
+            <td class="py-3.5 px-4 text-right space-x-2 whitespace-nowrap">
+              <a href="https://wa.me/${q.phone.replace(/[^0-9]/g, '')}?text=Merhaba%20${encodeURIComponent(q.name)},%20Simge%20Reklam%20olarak%20teklif%20talebiniz%20i%C3%A7in%20yaz%C4%B1yoruz." target="_blank" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-[11px] transition-colors">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>WhatsApp</span>
+              </a>
+              <a href="tel:${q.phone}" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold text-[11px] transition-colors border border-slate-700">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-orange"></i>
+                <span>Ara</span>
+              </a>
+            </td>
+          </tr>
+        `).join('');
+        lucide.createIcons();
+      } catch (err) {
+        statEl.textContent = '0';
+        tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Henüz kaydedilmiş teklif talebi bulunmuyor. Yeni talepler burada listelenecektir.</td></tr>`;
+      }
+    }
+
+    // Load Projects
+    async function loadProjects() {
+      const container = document.getElementById('projectsGrid');
+      try {
+        const res = await fetch('data/projects.json');
+        const projects = await res.json();
+        
+        container.innerHTML = projects.map(p => `
+          <div class="bg-brand-dark rounded-2xl border border-slate-800 overflow-hidden shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="aspect-[4/3] bg-slate-900 overflow-hidden">
+                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
+              </div>
+              <div class="p-4">
+                <span class="text-[10px] uppercase font-bold text-brand-orange tracking-wider">${p.categoryName}</span>
+                <h5 class="font-bold text-white text-sm mt-0.5">${p.title}</h5>
+                <p class="text-xs text-slate-400 mt-1">${p.location}</p>
+                <p class="text-xs text-slate-300 mt-2 line-clamp-2">${p.description}</p>
+              </div>
+            </div>
+            <div class="px-4 py-3 bg-slate-900/80 border-t border-slate-800 flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-semibold flex items-center space-x-1">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                <span>Yayında</span>
+              </span>
+              <button onclick="alert('Proje düzenleme arayüzü admin yetkisi ile açılacaktır.')" class="text-slate-400 hover:text-brand-orange font-semibold transition-colors">
+                Düzenle
+              </button>
+            </div>
+          </div>
+        `).join('');
+        lucide.createIcons();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    document.getElementById('refreshQuotes').addEventListener('click', loadQuotes);
+
+    loadQuotes();
+    loadProjects();
+  </script>
+</body>
+</html>

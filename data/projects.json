@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Gold Paslanmaz Kutu Harf & LED",
+    "category": "tabela",
+    "categoryName": "Tabela Sistemleri",
+    "tag": "Işıklı Kutu Harf",
+    "location": "Haliliye / Şanlıurfa",
+    "image": "assets/images/kutu-harf.jpg",
+    "description": "Lüks mağaza cephesi için arkadan sıcak sarı LED aydınlatmalı paslanmaz krom kutu harf tabela uygulaması."
+  },
+  {
+    "id": 2,
+    "title": "Geniş Format UV Vinil Baskı",
+    "category": "baski",
+    "categoryName": "Dijital Baskı",
+    "tag": "Dış Mekan Vinil",
+    "location": "Organize Sanayi Bölgesi / Şanlıurfa",
+    "image": "assets/images/dijital-baski.jpg",
+    "description": "Endüstriyel tesisler ve fabrika girişleri için yüksek çözünürlüklü solmayan UV vinil branda imalatı."
+  },
+  {
+    "id": 3,
+    "title": "Ticari Filo Cast Folyo Giydirme",
+    "category": "arac",
+    "categoryName": "Araç Giydirme",
+    "tag": "Araç Kaplama",
+    "location": "Karaköprü / Şanlıurfa",
+    "image": "assets/images/arac-kaplama.jpg",
+    "description": "Panelvan dağıtım araçları için kabarma yapmayan özel cast folyo kurumsal kimlik giydirme."
+  },
+  {
+    "id": 4,
+    "title": "Plaza Girişi Işıklı Pilon Totem",
+    "category": "tabela",
+    "categoryName": "Totem Tabela",
+    "tag": "Totem Tabela",
+    "location": "Eyyübiye / Şanlıurfa Çevre Yolu",
+    "image": "assets/images/totem-tabela.jpg",
+    "description": "Gündüz ve gece yüksek görünürlüğe sahip alüminyum kompozit gövdeli pilon totem tabela montajı."
+  },
+  {
+    "id": 5,
+    "title": "One Way Vision Cam Giydirme",
+    "category": "baski",
+    "categoryName": "Dijital Baskı & Vitrin",
+    "tag": "Vitrin Folyo",
+    "location": "Haliliye Çarşı / Şanlıurfa",
+    "image": "assets/images/folyo-vitrin.jpg",
+    "description": "İçeriden dışarısı görünen, dışarıdan ise kurumsal görseli sergileyen delikli cam folyo uygulaması."
+  },
+  {
+    "id": 6,
+    "title": "Lobi Arkadan Aydınlatmalı 3D Harf",
+    "category": "isikli",
+    "categoryName": "İç Mekan & Işıklı Logo",
+    "tag": "İç Mekan Pleksi",
+    "location": "Karaköprü İş Merkezi / Şanlıurfa",
+    "image": "assets/images/isikli-pleksi.jpg",
+    "description": "Ofis resepsiyonu için ahşap akustik panel üzeri sıcak LED aydınlatmalı 3D akrilik logo montajı."
+  }
+]

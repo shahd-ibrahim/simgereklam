@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Simge Reklam - Official Brand Styles & Micro-Animations
+   Brand Palette:
+   - Deep Carbon Navy Backgrounds: #0b0f19, #111827
+   - Vibrant Advertising Orange: #ff7a00 (Hover: #e06500)
+   - Warm Amber Gold Accent: #f59e0b
+   - Light Background: #f8fafc, White: #ffffff
+   ========================================================================== */
+
+:root {
+  --color-carbon-dark: #0b0f19;
+  --color-carbon-surface: #111827;
+  --color-orange: #ff7a00;
+  --color-orange-hover: #e06500;
+  --color-gold: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 4px;
+  border: 2px solid #0b0f19;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7a00;
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+  background: rgba(11, 15, 25, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-card {
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glowing Neon & Brand Shadows */
+.orange-glow {
+  text-shadow: 0 0 25px rgba(255, 122, 0, 0.55);
+}
+
+.brand-glow-box {
+  box-shadow: 0 0 35px -5px rgba(255, 122, 0, 0.25);
+}
+
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.96) 0%, rgba(17, 24, 39, 0.92) 50%, rgba(11, 15, 25, 0.85) 100%);
+}
+
+/* Service Card Hover Effect */
+.card-hover-effect {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  border-color: #ff7a00;
+  box-shadow: 0 20px 35px -10px rgba(255, 122, 0, 0.15);
+}
+
+/* Image Zoom */
+.img-zoom-container {
+  overflow: hidden;
+}
+.img-zoom-container img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Filter Tab Active State */
+.filter-btn.active {
+  background-color: #ff7a00 !important;
+  color: #ffffff !important;
+  border-color: #ff7a00 !important;
+  box-shadow: 0 4px 15px rgba(255, 122, 0, 0.35);
+}
+
+/* Lightbox Modal Animation */
+#lightboxModal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#lightboxModal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Pulse animation for CTA phone */
+@keyframes pulse-orange {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 122, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(255, 122, 0, 0);
+  }
+}
+
+.pulse-orange-btn {
+  animation: pulse-orange 2.2s infinite;
+}
+
+/* Mobile Bottom Action Bar */
+.mobile-bottom-bar {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+}
