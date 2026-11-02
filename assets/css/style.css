@@ -72,32 +72,89 @@ html {
   box-shadow: 0 20px 35px -10px rgba(255, 122, 0, 0.15);
 }
 
-/* Image Zoom */
-.img-zoom-container {
+/* ==========================================================================
+   CRITICAL IMAGE RENDERING RULE:
+   Preserve True Aspect Ratio Without Any Cropping, Cutting or Distortion
+   ========================================================================== */
+.gallery-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gallery-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 122, 0, 0.5);
+  box-shadow: 0 15px 30px -8px rgba(255, 122, 0, 0.2);
+}
+
+.gallery-stage {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  background: radial-gradient(circle at center, #151d30 0%, #080c14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  padding: 1rem;
 }
-.img-zoom-container img {
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+.gallery-stage img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
 }
-.img-zoom-container:hover img {
-  transform: scale(1.08);
+.gallery-card:hover .gallery-stage img {
+  transform: scale(1.04);
+}
+
+.gallery-stage video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
 }
 
 /* Filter Tab Active State */
-.filter-btn.active {
+.filter-btn.active, .gallery-filter-btn.active {
   background-color: #ff7a00 !important;
   color: #ffffff !important;
   border-color: #ff7a00 !important;
   box-shadow: 0 4px 15px rgba(255, 122, 0, 0.35);
 }
 
-/* Lightbox Modal Animation */
-#lightboxModal {
+/* Lightbox Modal Animations & Zoom */
+#lightboxModal, #advancedLightboxModal {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-#lightboxModal.show {
-  opacity: 1;
-  visibility: visible;
+#lightboxModal.show, #advancedLightboxModal.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#lightboxMainImage {
+  transform-origin: center center;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Video Play Button Glowing Ring */
+@keyframes ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 122, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 122, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 122, 0, 0);
+  }
+}
+.video-pulse-icon {
+  animation: ring-pulse 2s infinite;
 }
 
 /* Pulse animation for CTA phone */
@@ -112,6 +169,20 @@ html {
 
 .pulse-orange-btn {
   animation: pulse-orange 2.2s infinite;
+}
+
+/* Floating Emergency Action Banner */
+.floating-urgent-banner {
+  background: linear-gradient(90deg, #ff7a00 0%, #d97706 100%);
+  animation: banner-glow 3s ease-in-out infinite alternate;
+}
+@keyframes banner-glow {
+  0% {
+    box-shadow: 0 4px 20px rgba(255, 122, 0, 0.35);
+  }
+  100% {
+    box-shadow: 0 4px 30px rgba(255, 122, 0, 0.6);
+  }
 }
 
 /* Mobile Bottom Action Bar */

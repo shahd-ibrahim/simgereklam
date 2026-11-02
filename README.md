@@ -1,6 +1,6 @@
 # Simge Reklam - Kurumsal Web Sitesi & Portföy (Şanlıurfa)
 
-Modern, ultra hızlı ve tam mobil uyumlu kurumsal tanıtım ve portföy web sitesi.
+Modern, ultra hızlı ve tam mobil uyumlu kurumsal açık hava reklamcılığı, tabela ve dijital baskı web platformu.
 
 ---
 
@@ -24,30 +24,31 @@ Modern, ultra hızlı ve tam mobil uyumlu kurumsal tanıtım ve portföy web sit
 
 ---
 
-## 🚀 Öne Çıkan Özellikler
+## 🚀 Yeni & Gelişmiş Özellikler
 
-1. **Mobil Optimizasyon & Hızlı Aksiyon:**
-   - Mobilde tek dokunuşla çalışan **"Hemen Ara"**, **"WhatsApp"** ve **"Teklif Al"** alt aksiyon çubuğu (Sticky bottom bar).
-   - Akıcı açılır menü (Off-canvas mobile drawer).
+1. **Özel Projelerimiz & İmalat Galerisi (`projelerimiz.html`):**
+   - 30+ gerçek Şanlıurfa montaj fotoğrafı ve atölye imalat videosu (`assets/videos/`).
+   - **Kritik Görüntü İşleme Kuralı (Zero Cropping):** Hiçbir görsel kırpılmaz, bozulmaz veya kesilmez. `object-contain` ve doğal en-boy oranı (aspect-ratio) sahnelemesi ile geniş cephe tabelaları da, dikey pilon totemler de %100 eksiksiz görüntülenir.
+   - Gerçek zamanlı arama, ilçe/malzeme filtreleme ve kategori sekmeleri.
 
-2. **İnteraktif Proje Galerisi & Filtreleme:**
-   - Kategorilere göre filtreleme (Tümü, Tabela Sistemleri, Dijital Baskı, Araç Giydirme, Işıklı Harf).
-   - Fotoğraflara tıklandığında açılan tam ekran **Lightbox** modal penceresi.
-   - Gerçek yüksek çözünürlüklü imalat ve atölye görselleri.
+2. **Gelişmiş Yüksek Çözünürlüklü Lightbox Modal:**
+   - Hem fotoğrafları hem de atölye/saha videolarını (`.mp4`) tam boyutta oynatır.
+   - Pürüzsüz interaktif yakınlaştırma (**Zoom In**, **Zoom Out**, **Reset 100%**, çift tıklama desteği).
+   - Proje sayacı (`1 / 30`), önceki/sonraki yön tuşları (`←`, `→`, `ESC`), detaylı ilçe/kategori açıklaması ve tek tıkla o projeye özel önceden doldurulmuş WhatsApp teklif butonu.
 
-3. **Çift Fonksiyonlu Teklif Formu:**
-   - Form doldurulduğunda hem sunucuya (`submit-quote.php` ve `data/quotes.json`) kayıt yapar,
-   - Hem de tek tıkla **WhatsApp** üzerinden müşterinin girdiği tüm detayları (İsim, Telefon, Hizmet, Ölçüler) formatlayarak işletme numarasına mesaj olarak hazırlar.
+3. **Homepage SEO & Dönüşüm (Conversion) Optimizasyonu:**
+   - **Yerel SEO Meta Verileri:** "Şanlıurfa Tabela", "Haliliye Dijital Baskı", "Kutu Harf Tabela Şanlıurfa" hedefli meta başlık, açıklama ve zengin anahtar kelimeler.
+   - **LocalBusiness JSON-LD Yapısal Veri (Schema.org):** Adres (Atatürk Mah., 2. Sok., No: 13, Haliliye), telefon (+90 414 315 1787), coğrafi koordinatlar, 5.0 puanlı aggregateRating ve detaylı açık hava reklam hizmet kataloğu.
+   - **Ekranın Üst Kısmı (Above the Fold) Güven & Sosyal Kanıt Unsurları:**
+     - 15+ Yıl Tecrübe, %100 Müşteri Memnuniyeti, Yerinde Ücretsiz Keşif, Kendi Atölyemizden Aracısız Fiyat rozetleri.
+     - 5 Yıldızlı Google Haritalar müşteri değerlendirme alıntısı.
+     - Acil dönüşüm sağlayan hareketli **"Hemen Teklif Al / WhatsApp İletişim"** bildirim bandı (Floating Action Banner).
+   - Anahtar kelime zengin H1, H2 ve H3 başlık hiyerarşisi (3D kutu harf, totem tabela, one-way vision, araç kaplama).
 
-4. **Yönetim Paneli (`yonetim.html`):**
-   - Web sitesinden gelen teklif taleplerini listeleme,
-   - Tek tıkla müşteriye WhatsApp'tan yanıt verme veya telefonla arama,
-   - Yayındaki portföy projelerini inceleme ve yeni proje ekleme arayüzü.
-
-5. **SEO & Yerel Arama (Local SEO) Uyumu:**
-   - Şanlıurfa ve Haliliye anahtar kelimeleriyle optimize edilmiş meta etiketleri,
-   - Google Haritalar entegrasyonu,
-   - `LocalBusiness` JSON-LD schema yapısal veri entegrasyonu.
+4. **Çift Fonksiyonlu Teklif Formu & Yönetim Paneli (`yonetim.html`):**
+   - Web sitesinden gelen teklif taleplerini anında kaydeder (`data/quotes.json` ve `submit-quote.php`),
+   - WhatsApp üzerinden ölçü ve proje detaylarını biçimlendirerek iletir,
+   - Yönetim paneli üzerinden canlı teklif takibi ve proje vitrini sağlar.
 
 ---
 
@@ -55,35 +56,36 @@ Modern, ultra hızlı ve tam mobil uyumlu kurumsal tanıtım ve portföy web sit
 
 ```
 simgereklam/
-├── index.html            # Ana web sitesi
+├── index.html            # Ana web sitesi (SEO & dönüşüm optimizasyonlu)
+├── projelerimiz.html     # Özel galeri ve video sayfası (30+ gerçek proje)
 ├── yonetim.html          # Yönetim paneli ve teklif takip ekranı
 ├── submit-quote.php      # Teklif formu PHP kayıt ve işleyici scripti
-├── README.md             # Dokümantasyon
+├── README.md             # Proje dokümantasyonu
 ├── assets/
 │   ├── css/
-│   │   └── style.css     # Özel stiller, animasyonlar ve cam efektleri
+│   │   └── style.css     # Özel stiller, animasyonlar, uncropped gallery & lightbox
 │   ├── js/
-│   │   └── main.js       # Filtreleme, Lightbox, form ve WhatsApp mantığı
-│   └── images/           # Yüksek çözünürlüklü proje fotoğrafları
+│   │   └── main.js       # Dinamik galeri motoru, video/resim lightbox & zoom sistemi
+│   ├── videos/           # Gerçek atölye imalat ve saha montaj videoları
+│   │   ├── atolye-kutu-harf-imalat.mp4
+│   │   └── tabela-montaj-uygulama.mp4
+│   └── images/           # Gerçek Şanlıurfa montaj fotoğrafları & kurumsal logo
+│       ├── logo.png
 │       ├── hero.jpg
-│       ├── kutu-harf.jpg
-│       ├── dijital-baski.jpg
-│       ├── arac-kaplama.jpg
-│       ├── totem-tabela.jpg
-│       ├── folyo-vitrin.jpg
-│       └── isikli-pleksi.jpg
+│       └── WhatsApp Image 2026-*.jpeg
 └── data/
-    ├── projects.json     # Portföy projeleri veri tabanı
+    ├── projects.json     # 30 adet gerçek proje & video veri tabanı
     └── quotes.json       # Gelen teklif talepleri kayıt dosyası
 ```
 
 ---
 
-## 🛠️ XAMPP ile Çalıştırma
+## 🛠️ XAMPP ile Test Etme
 
-1. Proje zaten `c:\xampp\htdocs\simgereklam` dizininde bulunmaktadır.
+1. Proje `c:\xampp\htdocs\simgereklam` dizinindedir.
 2. XAMPP Kontrol Panelinden **Apache** servisini başlatın (`Start`).
 3. Tarayıcınızdan:
-   - Ana site için: `http://localhost/simgereklam/`
-   - Yönetim paneli için: `http://localhost/simgereklam/yonetim.html`
-   adreslerine gidebilirsiniz.
+   - Ana sayfa: `http://localhost/simgereklam/`
+   - Projeler & Galeri sayfası: `http://localhost/simgereklam/projelerimiz.html`
+   - Yönetim paneli: `http://localhost/simgereklam/yonetim.html`
+   adreslerini ziyaret edebilirsiniz.
