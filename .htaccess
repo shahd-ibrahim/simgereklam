@@ -1,0 +1,31 @@
+# ==============================================================================
+# Simge Reklam - Local Apache & Performance Optimization (.htaccess)
+# Haliliye / Şanlıurfa
+# ==============================================================================
+
+# 1. MIME Types for Media & JSON
+<IfModule mod_mime.c>
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
+    AddType image/jpeg .jpeg .jpg
+    AddType image/png .png
+    AddType image/webp .webp
+    AddType application/json .json
+</IfModule>
+
+# 2. Disable MMAP and Sendfile on Windows to prevent ERR_CONNECTION_RESET
+<IfModule core_module>
+    EnableMMAP Off
+    EnableSendfile Off
+</IfModule>
+
+# 3. HTTP Headers: Enable Byte-Range Requests and CORS for local testing
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Accept-Ranges bytes
+</IfModule>
+
+# 4. Safe Directory Index
+DirectoryIndex index.html index.php
+Options +FollowSymLinks -Indexes
+

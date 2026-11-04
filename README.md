@@ -8,8 +8,8 @@ Modern, ultra hızlı ve tam mobil uyumlu kurumsal açık hava reklamcılığı,
 - **Firma Adı:** Simge Reklam (Şanlıurfa Tabela & Baskı Atölyesi)
 - **Logo:** `assets/images/logo.png` (Renkli Kurumsal Simge Amblemi)
 - **Adres:** Atatürk Mah., 2. Sok., No: 13, Haliliye / Şanlıurfa
-- **Telefon:** +90 414 315 1787
-- **WhatsApp:** [0414 315 17 87](https://wa.me/904143151787)
+- **Telefon:** +90 507 379 02 72
+- **WhatsApp:** [0507 379 02 72](https://wa.me/905073790272)
 - **E-Posta:** info@simgereklam.com
 - **Hizmet Bölgesi:** Haliliye, Karaköprü, Eyyübiye, OSB ve tüm Şanlıurfa ilçeleri
 
@@ -38,17 +38,17 @@ Modern, ultra hızlı ve tam mobil uyumlu kurumsal açık hava reklamcılığı,
 
 3. **Homepage SEO & Dönüşüm (Conversion) Optimizasyonu:**
    - **Yerel SEO Meta Verileri:** "Şanlıurfa Tabela", "Haliliye Dijital Baskı", "Kutu Harf Tabela Şanlıurfa" hedefli meta başlık, açıklama ve zengin anahtar kelimeler.
-   - **LocalBusiness JSON-LD Yapısal Veri (Schema.org):** Adres (Atatürk Mah., 2. Sok., No: 13, Haliliye), telefon (+90 414 315 1787), coğrafi koordinatlar, 5.0 puanlı aggregateRating ve detaylı açık hava reklam hizmet kataloğu.
+   - **LocalBusiness JSON-LD Yapısal Veri (Schema.org):** Adres (Atatürk Mah., 2. Sok., No: 13, Haliliye), telefon (+90 507 379 02 72), coğrafi koordinatlar, 5.0 puanlı aggregateRating ve detaylı açık hava reklam hizmet kataloğu.
    - **Ekranın Üst Kısmı (Above the Fold) Güven & Sosyal Kanıt Unsurları:**
      - 15+ Yıl Tecrübe, %100 Müşteri Memnuniyeti, Yerinde Ücretsiz Keşif, Kendi Atölyemizden Aracısız Fiyat rozetleri.
      - 5 Yıldızlı Google Haritalar müşteri değerlendirme alıntısı.
      - Acil dönüşüm sağlayan hareketli **"Hemen Teklif Al / WhatsApp İletişim"** bildirim bandı (Floating Action Banner).
    - Anahtar kelime zengin H1, H2 ve H3 başlık hiyerarşisi (3D kutu harf, totem tabela, one-way vision, araç kaplama).
 
-4. **Çift Fonksiyonlu Teklif Formu & Yönetim Paneli (`yonetim.html`):**
-   - Web sitesinden gelen teklif taleplerini anında kaydeder (`data/quotes.json` ve `submit-quote.php`),
-   - WhatsApp üzerinden ölçü ve proje detaylarını biçimlendirerek iletir,
-   - Yönetim paneli üzerinden canlı teklif takibi ve proje vitrini sağlar.
+4. **Vercel Static Uyumlu WhatsApp Teklif Motoru & Yönetim Paneli (`yonetim.html`):**
+   - %100 istemci tarafı (client-side) çalışan, Vercel statik barındırma ile tam uyumlu teklif sistemi.
+   - Ziyaretçi ad, telefon, hizmet türü ve ölçüleri girdiğinde otomatik olarak biçimlendirilmiş kurumsal WhatsApp teklif mesajı oluşturur ve WhatsApp'a yönlendirir.
+   - Tarayıcı `localStorage` kaydı ve `data/quotes.json` desteği ile yönetim paneli üzerinden canlı teklif takibi sağlar.
 
 ---
 
@@ -56,16 +56,19 @@ Modern, ultra hızlı ve tam mobil uyumlu kurumsal açık hava reklamcılığı,
 
 ```
 simgereklam/
-├── index.html            # Ana web sitesi (SEO & dönüşüm optimizasyonlu)
+├── index.html            # Ana web sitesi (SEO & dönüşüm optimizasyonlu, sadeleştirilmiş modern header)
 ├── projelerimiz.html     # Özel galeri ve video sayfası (30+ gerçek proje)
 ├── yonetim.html          # Yönetim paneli ve teklif takip ekranı
-├── submit-quote.php      # Teklif formu PHP kayıt ve işleyici scripti
+├── vercel.json           # Vercel statik dağıtım ve routing konfigürasyonu
 ├── README.md             # Proje dokümantasyonu
+├── data/
+│   ├── projects.json     # 30 adet gerçek proje veritabanı (JSON)
+│   └── quotes.json       # Teklif kayıtları
 ├── assets/
 │   ├── css/
 │   │   └── style.css     # Özel stiller, animasyonlar, uncropped gallery & lightbox
 │   ├── js/
-│   │   └── main.js       # Dinamik galeri motoru, video/resim lightbox & zoom sistemi
+│   │   └── main.js       # Dinamik galeri motoru, video/resim lightbox & WhatsApp teklif sistemi
 │   ├── videos/           # Gerçek atölye imalat ve saha montaj videoları
 │   │   ├── atolye-kutu-harf-imalat.mp4
 │   │   └── tabela-montaj-uygulama.mp4
@@ -89,3 +92,4 @@ simgereklam/
    - Projeler & Galeri sayfası: `http://localhost/simgereklam/projelerimiz.html`
    - Yönetim paneli: `http://localhost/simgereklam/yonetim.html`
    adreslerini ziyaret edebilirsiniz.
+

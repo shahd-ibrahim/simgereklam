@@ -1,7 +1,17 @@
 /**
  * Simge Reklam - Core Interactive JavaScript & Media Gallery Engine
  * Haliliye / Şanlıurfa
+ * 100% Client-Side & Vercel Static Compatible (No PHP backend dependency)
  */
+
+// Centralized Configuration
+const SIMGE_CONFIG = {
+  // Mobile WhatsApp Line (+90 507 379 02 72)
+  whatsappPhone: '905073790272',
+  // Office Landline Line (+90 414 315 1787)
+  landlinePhone: '904143151787',
+  displayPhone: '+90 507 379 02 72'
+};
 
 // Global State
 let allProjects = [];
@@ -126,9 +136,7 @@ function createProjectCardHTML(project, index) {
         
         ${isVideo ? `
           <div class="relative w-full h-full flex items-center justify-center">
-            <video preload="metadata" muted playsinline class="max-h-full max-w-full object-contain rounded-xl opacity-90 group-hover:opacity-100 transition-opacity">
-              <source src="${project.videoUrl}" type="video/mp4">
-            </video>
+            <img src="${project.image}" alt="${project.title} - Simge Reklam Şanlıurfa" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain filter drop-shadow">
             <!-- Glowing Play Button Overlay -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div class="w-14 h-14 rounded-full bg-brand-orange text-white flex items-center justify-center shadow-2xl video-pulse-icon group-hover:scale-110 transition-transform">
@@ -137,7 +145,7 @@ function createProjectCardHTML(project, index) {
             </div>
           </div>
         ` : `
-          <img src="${project.image}" alt="${project.title} - Simge Reklam Şanlıurfa" loading="lazy" class="max-h-full max-w-full object-contain filter drop-shadow">
+          <img src="${project.image}" alt="${project.title} - Simge Reklam Şanlıurfa" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain filter drop-shadow">
         `}
 
         <!-- Aspect Ratio / Media Type Badge -->
@@ -198,7 +206,7 @@ function createProjectCardHTML(project, index) {
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </button>
           
-          <a href="https://wa.me/904143151787?text=Merhaba,%20web%20sitenizdeki%20%22${encodeURIComponent(project.title)}%22%20projesi%20i%C3%A7in%20fiyat%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white transition-colors" title="WhatsApp'tan Bu Model İçin Fiyat Al">
+          <a href="https://wa.me/905073790272?text=Merhaba,%20web%20sitenizdeki%20%22${encodeURIComponent(project.title)}%22%20projesi%20i%C3%A7in%20fiyat%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white transition-colors" title="WhatsApp'tan Bu Model İçin Fiyat Al">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
           </a>
         </div>
@@ -381,7 +389,7 @@ function displayLightboxItem(project) {
     if (locEl) locEl.innerHTML = `<svg class="w-3.5 h-3.5 text-brand-gold mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> <span>${project.location}</span>`;
     if (catEl) catEl.textContent = project.categoryName;
     if (waLink) {
-      waLink.href = `https://wa.me/904143151787?text=Merhaba%20Simge%20Reklam,%20web%20sitenizdeki%20%22${encodeURIComponent(project.title)}%22%20(${encodeURIComponent(project.location)})%20projesi%20i%C3%A7in%20fiyat%20ve%20ke%C5%9Fif%20talep%20ediyorum.`;
+      waLink.href = `https://wa.me/905073790272?text=Merhaba%20Simge%20Reklam,%20web%20sitenizdeki%20%22${encodeURIComponent(project.title)}%22%20(${encodeURIComponent(project.location)})%20projesi%20i%C3%A7in%20fiyat%20ve%20ke%C5%9Fif%20talep%20ediyorum.`;
     }
 
     currentZoomLevel = 1;
@@ -389,15 +397,16 @@ function displayLightboxItem(project) {
 
     if (project.type === 'video') {
       imgEl.classList.add('hidden');
-      imgEl.src = '';
+      imgEl.removeAttribute('src');
       vidEl.classList.remove('hidden');
       vidEl.src = project.videoUrl;
       vidEl.currentTime = 0;
       vidEl.play().catch(() => {});
     } else {
       vidEl.pause();
+      vidEl.removeAttribute('src');
+      vidEl.load();
       vidEl.classList.add('hidden');
-      vidEl.src = '';
       imgEl.classList.remove('hidden');
       imgEl.src = project.image;
     }
@@ -422,6 +431,7 @@ function displayLightboxItem(project) {
           existingVid.controls = true;
           existingVid.autoplay = true;
           existingVid.playsInline = true;
+          existingVid.preload = 'none';
           existingVid.className = 'max-h-[75vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl bg-black border border-slate-700';
           imgEl.parentNode.insertBefore(existingVid, imgEl);
         }
@@ -431,8 +441,9 @@ function displayLightboxItem(project) {
       } else {
         if (existingVid) {
           existingVid.pause();
+          existingVid.removeAttribute('src');
+          existingVid.load();
           existingVid.classList.add('hidden');
-          existingVid.src = '';
         }
         imgEl.classList.remove('hidden');
         imgEl.src = project.image;
@@ -454,16 +465,18 @@ function closeLightbox() {
   const modal = advancedModal || simpleModal;
   if (!modal) return;
 
-  // Pause videos
+  // Pause and reset videos to immediately release network streaming sockets
   const advVid = document.getElementById('lightboxMainVideo');
   if (advVid) {
     advVid.pause();
-    advVid.src = '';
+    advVid.removeAttribute('src');
+    advVid.load();
   }
   const simpVid = document.getElementById('lightboxDynamicVideo');
   if (simpVid) {
     simpVid.pause();
-    simpVid.src = '';
+    simpVid.removeAttribute('src');
+    simpVid.load();
   }
 
   modal.classList.add('opacity-0');
@@ -580,69 +593,76 @@ function initLightboxControls() {
   });
 }
 
-// Quote Form Submission
+// Quote Form Submission (100% Client-Side & Vercel Static Compatible)
+function buildAndSendWhatsAppQuote(form) {
+  const name = document.getElementById('quoteName')?.value.trim() || '';
+  const phone = document.getElementById('quotePhone')?.value.trim() || '';
+  const service = document.getElementById('quoteService')?.value || 'Genel Tabela / Reklam';
+  const dimensions = document.getElementById('quoteDimensions')?.value.trim() || '';
+  const note = document.getElementById('quoteNotes')?.value.trim() || '';
+
+  if (!name || !phone) {
+    showToast('Lütfen adınızı ve telefon numaranızı girin.', 'error');
+    return;
+  }
+
+  // Build clean formatted WhatsApp message
+  let text = `*Yeni Fiyat Teklifi Talebi - Simge Reklam*\n`;
+  text += `━━━━━━━━━━━━━━━━━━━━━\n`;
+  text += `👤 *Müşteri / Firma:* ${name}\n`;
+  text += `📞 *Telefon:* ${phone}\n`;
+  text += `🛠️ *İstenen Hizmet:* ${service}\n`;
+  if (dimensions) text += `📐 *Tahmini Ölçüler:* ${dimensions}\n`;
+  if (note) text += `📝 *Proje Notları:* ${note}\n`;
+  text += `📍 *Konum:* Haliliye / Şanlıurfa\n`;
+  text += `━━━━━━━━━━━━━━━━━━━━━\n`;
+  text += `Web sitesi üzerinden iletildi.`;
+
+  const encoded = encodeURIComponent(text);
+
+  // Store in localStorage for client-side persistence
+  try {
+    const existingQuotes = JSON.parse(localStorage.getItem('simge_local_quotes') || '[]');
+    existingQuotes.unshift({
+      id: 'quote_' + Date.now(),
+      name,
+      phone,
+      service,
+      dimensions,
+      notes: note,
+      date: new Date().toLocaleString('tr-TR')
+    });
+    localStorage.setItem('simge_local_quotes', JSON.stringify(existingQuotes.slice(0, 50)));
+  } catch (e) {}
+
+  showToast('Teklif talebiniz hazırlandı! WhatsApp üzerinden detaylarınızı iletiyoruz...', 'success');
+
+  // Open WhatsApp directly
+  const waUrl = `https://wa.me/${SIMGE_CONFIG.whatsappPhone}?text=${encoded}`;
+  window.open(waUrl, '_blank');
+
+  if (form) form.reset();
+}
+
 function initQuoteForm() {
   const form = document.getElementById('quoteForm');
   if (!form) return;
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-      </svg>
-      Teklif Talebiniz İletiliyor...
-    `;
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      await fetch('submit-quote.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).catch(() => null);
-
-      showToast('Talebiniz başarıyla alındı! Ekibimiz Şanlıurfa içi ücretsiz keşif ve teklif için sizinle iletişime geçecektir.', 'success');
-      form.reset();
-    } catch (err) {
-      showToast('Talebiniz kaydedildi. Acil durumlar için bizi 0414 315 1787 numarasından doğrudan arayabilirsiniz.', 'success');
-      form.reset();
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-    }
+    buildAndSendWhatsAppQuote(form);
   });
 }
 
-// WhatsApp Quote Builder
+// WhatsApp Quote Builder Button
 function initWhatsAppQuote() {
   const waBtn = document.getElementById('sendWhatsAppQuote');
   if (!waBtn) return;
 
-  waBtn.addEventListener('click', () => {
-    const name = document.getElementById('quoteName')?.value || '';
-    const phone = document.getElementById('quotePhone')?.value || '';
-    const service = document.getElementById('quoteService')?.value || 'Genel Tabela / Reklam';
-    const dimensions = document.getElementById('quoteDimensions')?.value || '';
-    const note = document.getElementById('quoteNotes')?.value || '';
-
-    let text = `Merhaba Simge Reklam,\nWeb siteniz üzerinden fiyat teklifi almak istiyorum.\n`;
-    if (name) text += `*Ad Soyad:* ${name}\n`;
-    if (phone) text += `*Telefon:* ${phone}\n`;
-    if (service) text += `*İstenen Hizmet:* ${service}\n`;
-    if (dimensions) text += `*Ölçüler:* ${dimensions}\n`;
-    if (note) text += `*Notlar:* ${note}\n`;
-    text += `*Konum:* Haliliye / Şanlıurfa`;
-
-    const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/904143151787?text=${encoded}`, '_blank');
+  waBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const form = document.getElementById('quoteForm');
+    buildAndSendWhatsAppQuote(form);
   });
 }
 

@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "id": "quote_6ae871803fba5",
+        "created_at": "2026-11-02 12:18:24",
+        "name": "Ahmet Yilmaz",
+        "phone": "05551234567",
+        "service": "Kutu Harf",
+        "dimensions": "",
+        "notes": "Deneme",
+        "ip": "::1"
+    }
+]

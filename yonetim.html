@@ -101,7 +101,7 @@
       <div class="bg-brand-surface rounded-2xl p-6 shadow-md border border-slate-800 flex items-center justify-between">
         <div>
           <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Hızlı WhatsApp Hattı</p>
-          <h3 class="text-lg font-bold text-emerald-400 font-display mt-1">+90 414 315 1787</h3>
+          <h3 class="text-lg font-bold text-emerald-400 font-display mt-1">+90 507 379 02 72</h3>
         </div>
         <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30">
           <i data-lucide="message-circle" class="w-6 h-6"></i>
@@ -212,9 +212,28 @@
       const tbody = document.getElementById('quotesTableBody');
       const statEl = document.getElementById('statQuotes');
       try {
-        const res = await fetch('data/quotes.json?' + Date.now());
-        if (!res.ok) throw new Error('No quotes file yet');
-        const quotes = await res.json();
+        let quotes = [];
+        try {
+          const res = await fetch('data/quotes.json?' + Date.now());
+          if (res.ok) quotes = await res.json();
+        } catch (e) {}
+
+        // Merge with client-side localStorage quotes (Vercel static support)
+        try {
+          const localQuotes = JSON.parse(localStorage.getItem('simge_local_quotes') || '[]');
+          if (Array.isArray(localQuotes) && localQuotes.length > 0) {
+            const formattedLocal = localQuotes.map(l => ({
+              id: l.id,
+              name: l.name,
+              phone: l.phone,
+              service: l.service,
+              dimensions: l.dimensions,
+              notes: l.notes,
+              created_at: l.date
+            }));
+            quotes = [...formattedLocal, ...quotes];
+          }
+        } catch (e) {}
         
         statEl.textContent = quotes.length;
 
