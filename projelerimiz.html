@@ -68,7 +68,19 @@
     "publisher": {
       "@type": "LocalBusiness",
       "name": "Simge Reklam",
-      "telephone": "+905073790272",
+      "telephone": "+904143151787",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+904143151787",
+          "contactType": "customer service"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+905073790272",
+          "contactType": "sales"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Atatürk Mah., 2. Sok., No: 13",
@@ -269,25 +281,25 @@
       
       <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         
-        <!-- Category Filter Buttons -->
-        <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto">
-          <button type="button" data-filter="all" class="gallery-filter-btn active px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all bg-brand-orange text-white border border-brand-orange shadow-md">
+        <!-- Category Filter Buttons (Compact & Touch-Friendly on Mobile) -->
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full lg:w-auto">
+          <button type="button" data-filter="all" class="gallery-filter-btn active px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold tracking-wide transition-all bg-brand-orange text-white border border-brand-orange shadow-md">
             Tümü (30)
           </button>
-          <button type="button" data-filter="video" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5">
-            <i data-lucide="play" class="w-3.5 h-3.5 text-brand-orange"></i>
+          <button type="button" data-filter="video" class="gallery-filter-btn px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1 sm:gap-1.5">
+            <i data-lucide="play" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-orange"></i>
             <span>Videolar (2)</span>
           </button>
-          <button type="button" data-filter="tabela" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+          <button type="button" data-filter="tabela" class="gallery-filter-btn px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
             Kutu Harf & Tabela
           </button>
-          <button type="button" data-filter="baski" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+          <button type="button" data-filter="baski" class="gallery-filter-btn px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
             Dijital Baskı & Vitrin
           </button>
-          <button type="button" data-filter="arac" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+          <button type="button" data-filter="arac" class="gallery-filter-btn px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
             Araç Giydirme
           </button>
-          <button type="button" data-filter="isikli" class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+          <button type="button" data-filter="isikli" class="gallery-filter-btn px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold tracking-wide transition-all bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
             Işıklı Logo & Pleksi
           </button>
         </div>
@@ -341,8 +353,8 @@
       <!-- CRITICAL IMAGE RENDERING RULE APPLIED:
            - No fixed cropping!
            - Images maintain their true aspect ratios with object-contain in a letterboxed sleek dark stage.
-           - No distorted stretching or cut-off signs. -->
-      <div id="fullGalleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+           - Compact 2-Column Mobile Grid reducing vertical scroll by ~50%. -->
+      <div id="fullGalleryGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6 items-stretch">
         <!-- Rendered dynamically from data/projects.json by main.js or project script -->
       </div>
 
@@ -391,7 +403,7 @@
   <!-- ================= FOOTER ================= -->
   <footer class="bg-black text-slate-400 text-sm border-t border-slate-800 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 mb-8 sm:mb-12">
         <div>
           <div class="flex items-center space-x-3 mb-4">
             <img src="assets/images/logo.png" alt="Simge Reklam Logo" class="w-10 h-10 object-contain">
@@ -451,18 +463,19 @@
         </div>
       </div>
 
-      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <!-- Bottom Line with Legal Compliance Links -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
         <div>
           &copy; <span id="galleryYear"></span> Simge Reklam - Şanlıurfa. Tüm Hakları Saklıdır.
         </div>
-        <div class="flex items-center space-x-4">
-          <a href="index.html#home" class="hover:text-slate-300">Ana Sayfa</a>
-          <span>•</span>
-          <a href="index.html#services" class="hover:text-slate-300">Hizmetler</a>
-          <span>•</span>
-          <a href="projelerimiz.html" class="text-brand-orange font-semibold">Projelerimiz</a>
-          <span>•</span>
-          <a href="index.html#quote" class="hover:text-slate-300">Teklif Al</a>
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-slate-400">
+          <button type="button" onclick="openLegalModal('gizlilik')" class="hover:text-brand-orange transition-colors">Gizlilik Politikası</button>
+          <span class="text-slate-700">•</span>
+          <button type="button" onclick="openLegalModal('cerez')" class="hover:text-brand-orange transition-colors">Çerez Politikası</button>
+          <span class="text-slate-700">•</span>
+          <button type="button" onclick="openLegalModal('sartlar')" class="hover:text-brand-orange transition-colors">Kullanım Şartları</button>
+          <span class="text-slate-700">•</span>
+          <button type="button" onclick="openLegalModal('kvkk')" class="hover:text-brand-orange transition-colors">KVKK Aydınlatma</button>
         </div>
       </div>
     </div>
@@ -548,26 +561,69 @@
 
   </div>
 
-  <!-- Mobile Bottom Floating Action Bar -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-black/95 backdrop-blur-md border-t border-slate-800 mobile-bottom-bar px-4 py-2.5 shadow-2xl">
-    <div class="grid grid-cols-3 gap-2">
-      <a href="tel:+905073790272" class="flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 active:scale-95 transition-all border border-slate-800">
-        <i data-lucide="phone-call" class="w-4 h-4 text-brand-orange mb-1"></i>
-        <span class="text-[11px] font-bold">Ara</span>
-      </a>
-      <a href="https://wa.me/905073790272?text=Merhaba,%20galerinizdeki%20modeller%20hakk%C4%B1nda%20fiyat%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-500 active:scale-95 transition-all">
-        <i data-lucide="message-circle" class="w-4 h-4 mb-1"></i>
-        <span class="text-[11px] font-bold">WhatsApp</span>
-      </a>
-      <a href="index.html#quote" class="flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-brand-orange text-white font-black hover:bg-brand-orangeHover active:scale-95 transition-all">
-        <i data-lucide="send" class="w-4 h-4 mb-1"></i>
-        <span class="text-[11px]">Teklif Al</span>
-      </a>
+  <!-- ================= LEGAL COMPLIANCE MODAL ================= -->
+  <div id="legalModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 flex items-center justify-center p-4 transition-all duration-300">
+    <div class="bg-brand-surface border border-slate-700 rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-brand-dark/50">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+          <h3 id="legalModalTitle" class="font-bold text-white text-base font-display">Yasal Bilgilendirme</h3>
+        </div>
+        <button type="button" onclick="closeLegalModal()" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors" aria-label="Kapat">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="flex border-b border-slate-800 bg-slate-900/60 overflow-x-auto text-xs font-semibold">
+        <button type="button" onclick="switchLegalTab('gizlilik')" id="tabBtnGizlilik" class="legal-tab-btn px-4 py-3 text-brand-orange border-b-2 border-brand-orange whitespace-nowrap transition-colors font-bold">Gizlilik Politikası</button>
+        <button type="button" onclick="switchLegalTab('cerez')" id="tabBtnCerez" class="legal-tab-btn px-4 py-3 text-slate-400 hover:text-white border-b-2 border-transparent whitespace-nowrap transition-colors font-medium">Çerez Politikası</button>
+        <button type="button" onclick="switchLegalTab('sartlar')" id="tabBtnSartlar" class="legal-tab-btn px-4 py-3 text-slate-400 hover:text-white border-b-2 border-transparent whitespace-nowrap transition-colors font-medium">Kullanım Şartları</button>
+        <button type="button" onclick="switchLegalTab('kvkk')" id="tabBtnKvkk" class="legal-tab-btn px-4 py-3 text-slate-400 hover:text-white border-b-2 border-transparent whitespace-nowrap transition-colors font-medium">KVKK Aydınlatma</button>
+      </div>
+
+      <!-- Content Area -->
+      <div class="p-6 overflow-y-auto text-xs text-slate-300 space-y-4 leading-relaxed flex-1">
+        <div id="legalModalContent"></div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-slate-800 flex justify-end bg-brand-dark/50">
+        <button type="button" onclick="closeLegalModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors">
+          Anladım, Kapat
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- ================= FLOATING WHATSAPP CORNER BUTTON ================= -->
-  <aside class="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-50 group flex items-center" aria-label="WhatsApp Destek ve Hızlı Teklif Hattı">
+  <!-- ================= COOKIE CONSENT BANNER ================= -->
+  <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-8 md:max-w-md z-40 bg-brand-surface/95 backdrop-blur-md border border-slate-700/80 p-4 rounded-2xl shadow-2xl transition-all duration-300 hidden translate-y-6 opacity-0">
+    <div class="flex items-start space-x-3">
+      <div class="p-2 rounded-xl bg-brand-orange/20 text-brand-orange flex-shrink-0 mt-0.5">
+        <i data-lucide="cookie" class="w-4 h-4"></i>
+      </div>
+      <div class="flex-1">
+        <h4 class="text-xs font-bold text-white mb-1">Çerez Tercihleri & Gizlilik</h4>
+        <p class="text-[11px] text-slate-300 leading-relaxed">
+          Simge Reklam sitemizde en iyi deneyimi sunmak amacıyla çerezler kullanılmaktadır.
+        </p>
+        <div class="mt-3 flex items-center space-x-2">
+          <button type="button" onclick="acceptCookies()" class="px-3.5 py-1.5 rounded-lg bg-brand-orange hover:bg-brand-orangeHover text-white text-[11px] font-bold transition-colors shadow">
+            Kabul Et
+          </button>
+          <button type="button" onclick="openLegalModal('cerez')" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] transition-colors">
+            Çerez Politikası
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING NON-INTRUSIVE QUICK-CONTACT WHATSAPP ================= -->
+  <aside class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 group flex items-center" aria-label="WhatsApp Destek ve Hızlı Teklif Hattı">
     <!-- Desktop Hover Tooltip / Status Bubble -->
     <div class="hidden md:flex items-center bg-slate-950/95 text-white text-xs font-bold py-2 px-3.5 rounded-full shadow-2xl border border-slate-700/80 mr-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 whitespace-nowrap">
       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span>
@@ -578,7 +634,14 @@
     <a href="https://wa.me/905073790272?text=Merhaba%20Simge%20Reklam,%20galerideki%20modelleriniz%20ve%20fiyat%20teklifi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
        target="_blank"
        rel="noopener noreferrer"
-       class="wa-floating-btn relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full text-white cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300 ease-out"
+       class="wa-floating-btn relative flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full text-white cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300 ease-out shadow-2xl"
+       aria-label="WhatsApp ile İletişime Geç">
+      <!-- Crisp Official WhatsApp SVG -->
+      <svg class="w-7 h-7 sm:w-7 sm:h-7 md:w-8 md:h-8 fill-white" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </a>
+  </aside>
        aria-label="WhatsApp ile İletişime Geç">
       <!-- Crisp Official WhatsApp SVG -->
       <svg class="w-7 h-7 md:w-8 md:h-8 fill-white" viewBox="0 0 24 24">
